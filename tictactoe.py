@@ -1,7 +1,6 @@
 import os
 import msvcrt
 import time
-import sys
 
 board = "\t[ ] [ ] [ ]\n" \
         "\t[ ] [ ] [ ]\n" \
@@ -126,7 +125,7 @@ def xturn(playerchoice):  # box move for slices is +4 row change is +1
         lastturn = "xturn"
         gameboard(board)
     elif playerchoice not in allowed_keys:
-        sys.stderr.write("INCORRECT INPUT PLEASE TRY AGAIN!!!")
+        print("INCORRECT INPUT PLEASE TRY AGAIN!!!")
         time.sleep(1)
         os.system("cls")
         xturn(mygetch())
