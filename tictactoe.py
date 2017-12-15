@@ -80,47 +80,47 @@ def is_won(board):
 def xturn(playerchoice):  # box move for slices is +4 row change is +1
     global board
     global lastturn
-    if playerchoice == 55:  # Q
+    if playerchoice == 55:  # num7
         board = board[:2] + "X" + board[3:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
-    elif playerchoice == 56:  # W
+    elif playerchoice == 56:  # num8
         board = board[:6] + "X" + board[7:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
-    elif playerchoice == 57:  # E
+    elif playerchoice == 57:  # num9
         board = board[:10] + "X" + board[11:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
-    elif playerchoice == 52:  # A
+    elif playerchoice == 52:  # num4
         board = board[:15] + "X" + board[16:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
-    elif playerchoice == 53:  # S
+    elif playerchoice == 53:  # num5
         board = board[:19] + "X" + board[20:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
-    elif playerchoice == 54:  # D
+    elif playerchoice == 54:  # num6
         board = board[:23] + "X" + board[24:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
-    elif playerchoice == 49:  # Z
+    elif playerchoice == 49:  # num1
         board = board[:28] + "X" + board[29:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
-    elif playerchoice == 50:  # X
+    elif playerchoice == 50:  # num2
         board = board[:32] + "X" + board[33:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
-    elif playerchoice == 51:  # C
+    elif playerchoice == 51:  # num3
         board = board[:36] + "X" + board[37:]
         os.system("cls")
         lastturn = "xturn"
