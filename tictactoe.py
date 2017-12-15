@@ -20,9 +20,9 @@ def gameboard(board):
         print(board)
         if lastturn == "oturn":
             # If game is won, Don't allow moves
-            if iswon == 0:
+            if iswon == 1:
                 is_won(board)
-            elif iswon == 1:
+            elif iswon == 0:
                 print("\t X's turn!")
                 xturn(mygetch())
         else:
@@ -42,36 +42,42 @@ def mygetch():
 # Checks if one of the players has won the game
 def is_won(board):
     global iswon
-    if board[2] == "X" and board[6] == "X" and board[10] == "X" or board[2] == "O" and board[6] == "O" and board[10] == "O":  # top horizontal
+    if (board[2] == "X" and board[6] == "X" and board[10] == "X" or
+            board[2] == "O" and board[6] == "O" and board[10] == "O"):  # top horizontal
         print("CONGRATULATIONS!!\n")
-        iswon = 1
-    elif board[15] == "X" and board[19] == "X" and board[23] == "X" or board[15] == "O" and board[19] == "O" and board[23] == "O":  # middle horizontal
+        iswon += 1
+    elif (board[15] == "X" and board[19] == "X" and board[23] == "X" or
+            board[15] == "O" and board[19] == "O" and board[23] == "O"):  # middle horizontal
         print("CONGRATULATIONS!!\n")
-        iswon = 1
-    elif board[28] == "X" and board[32] == "X" and board[36] == "X" or board[28] == "O" and board[32] == "O" and board[36] == "O":  # bottom horizontal
+        iswon += 1
+    elif (board[28] == "X" and board[32] == "X" and board[36] == "X" or
+            board[28] == "O" and board[32] == "O" and board[36] == "O"):  # bottom horizontal
         print("CONGRATULATIONS!!\n")
-        iswon = 1
-    elif board[2] == "X" and board[15] == "X" and board[28] == "X" or board[2] == "O" and board[15] == "O" and board[28] == "O":  # left vertical
+        iswon += 1
+    elif (board[2] == "X" and board[15] == "X" and board[28] == "X" or
+            board[2] == "O" and board[15] == "O" and board[28] == "O"):  # left vertical
         print("CONGRATULATIONS!!\n")
-        iswon = 1
-    elif board[6] == "X" and board[19] == "X" and board[32] == "X" or board[6] == "O" and board[19] == "O" and board[32] == "O":  # middle vertical
+        iswon += 1
+    elif (board[6] == "X" and board[19] == "X" and board[32] == "X" or
+            board[6] == "O" and board[19] == "O" and board[32] == "O"):  # middle vertical
         print("CONGRATULATIONS!!\n")
-        iswon = 1
-    elif board[10] == "X" and board[23] == "X" and board[36] == "X" or board[10] == "O" and board[23] == "O" and board[36] == "O":  # right vertical
+        iswon += 1
+    elif (board[10] == "X" and board[23] == "X" and board[36] == "X" or
+            board[10] == "O" and board[23] == "O" and board[36] == "O"):  # right vertical
         print("CONGRATULATIONS!!\n")
-        iswon = 1
-    elif board[2] == "X" and board[19] == "X" and board[36] == "X" or board[2] == "O" and board[19] == "O" and board[36] == "O":  # left top - right bottom
+        iswon += 1
+    elif (board[2] == "X" and board[19] == "X" and board[36] == "X" or
+            board[2] == "O" and board[19] == "O" and board[36] == "O"):  # left top - right bottom
         print("CONGRATULATIONS!!\n")
-        iswon = 1
-    elif board[10] == "X" and board[19] == "X" and board[28] == "X" or board[10] == "O" and board[19] == "O" and board[28] == "O":  # right top - left bottom
+        iswon += 1
+    elif (board[10] == "X" and board[19] == "X" and board[28] == "X" or
+            board[10] == "O" and board[19] == "O" and board[28] == "O"):  # right top - left bottom
         print("CONGRATULATIONS!!\n")
-        iswon = 1
-    else:
-        return
+        iswon += 1
 
 
 # Place X on player chosen position
-def xturn(playerchoice): # box move for slices is +4 row change is +1
+def xturn(playerchoice):  # box move for slices is +4 row change is +1
     global board
     global lastturn
     if playerchoice == 55:  # Q
@@ -85,13 +91,13 @@ def xturn(playerchoice): # box move for slices is +4 row change is +1
         lastturn = "xturn"
         gameboard(board)
     elif playerchoice == 57:  # E
-        board = board[:10] + "X" + board[1:]
+        board = board[:10] + "X" + board[11:]
         os.system("cls")
         lastturn = "xturn"
         gameboard(board)
     elif playerchoice == 52:  # A
         board = board[:15] + "X" + board[16:]
-        os.system("cls")1
+        os.system("cls")
         lastturn = "xturn"
         gameboard(board)
     elif playerchoice == 53:  # S
@@ -182,11 +188,9 @@ def oturn(playerchoice):
         gameboard(board)
 
 
-
 if __name__ == "__main__":
     print("This is a game of TIC-TAC-TOE!!\n"
-          "GAME BOARD is represented by this shape\n"
-          , board)
+          "GAME BOARD is represented by this shape\n", board)
     time.sleep(1)
     os.system("cls")
     print("To place X or O, press one of the keys presented here:\n"
